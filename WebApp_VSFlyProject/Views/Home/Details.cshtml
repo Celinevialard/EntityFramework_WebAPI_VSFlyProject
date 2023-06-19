@@ -1,0 +1,16 @@
+﻿@model FlightPriceViewModel
+
+@{
+    ViewData["Title"] = "Prix d'un vol";
+}
+
+<h1>Le vol n°@Model.FlightNo coute @Model.Price CHF.</h1>
+<br />
+<div>
+    <a class=" btn btn-check" href="@Url.Action("Book", "Home", new { flightNo = Model.FlightNo })"><i class="fas fa-cart-plus"></i> Réserver</a>
+</div>
+<br />
+<div>
+    <a class="btn btn-secondary" asp-action="Index"><i class="fas fa-arrow-left"></i> Afficher les vols <i class="fas fa-plane-departure"></i></a>
+</div>
+

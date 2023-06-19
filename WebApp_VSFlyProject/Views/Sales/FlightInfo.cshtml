@@ -1,0 +1,15 @@
+﻿@model FlightInfoViewModel
+
+@{
+    ViewData["Title"] = "FlightInfo";
+}
+
+<h1>Information pour le vol n° @Model.FlightNo</h1>
+
+<p>Total des ventes :  @Model.Sales CHF</p>
+
+<br />
+
+<div>
+    <a class="btn btn-secondary" asp-action="Search"><i class="fas fa-arrow-left"></i> Retour</a>
+</div>

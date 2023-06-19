@@ -1,0 +1,54 @@
+﻿@model DestinationInfoViewModel
+
+@{
+    ViewData["Title"] = "DestinationInfo";
+}
+
+<h1>Info pour la destination : @Model.Destination</h1>
+
+<p>Prix moyen des billets vendus :  @Model.Average CHF</p>
+
+@if (Model.Bookings!=null && Model.Bookings.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    N° de vol
+                </th>
+                <th>
+                    Prénom
+                </th>
+                <th>
+                    Nom
+                </th>
+                 <th>
+                    Prix
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Bookings)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price) CHF
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <div>
+        <a class="btn btn-secondary" asp-action="Search"><i class="fas fa-arrow-left"></i> Retour</a>
+    </div>
+}

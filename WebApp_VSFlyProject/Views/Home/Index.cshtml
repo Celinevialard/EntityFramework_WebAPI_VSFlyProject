@@ -1,0 +1,69 @@
+﻿@model List<FlightViewModel>
+@{
+    ViewData["Title"] = "Liste des vols";
+}
+
+<h1>Bienvenue sur VsFlight !</h1>
+
+<div>
+    <h4>Liste des vols proposés à venir</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="20%">
+                    <i class="fas fa-calendar"></i> Date
+                </th>
+                <th width="20%">
+                    <i class="fas fa-plane-departure"></i> Départ
+                </th>
+                <th width="20%">
+                    <i class="fas fa-plane-arrival"></i> Destination
+                </th>
+                <th width="10%">
+                    <i class="fas fa-hashtag"></i> N° de vol
+                </th>
+                <th width="15%">
+                    <i class="fas fa-coins"></i> Prix
+                </th>
+                <th width="15%">
+                    <i class="fas fa-cart-plus"></i> Réserver
+                </th>
+                
+            </tr>
+        </thead>
+        @if(Model != null && Model.Any()){
+
+        <tbody>  
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Departure)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Destination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightNo)
+                    </td>
+                    <td>
+                        <a class=" btn btn-info" href="@Url.Action("Details", "Home", new { flightNo = item.FlightNo })"><i class="fas fa-eye"></i> Afficher le prix</a>
+                    </td>
+                    <td>
+                        <a class=" btn btn-success" href="@Url.Action("Book", "Home", new { flightNo = item.FlightNo })"><i class="fas fa-cart-plus"></i> Réserver</a>
+                    </td>
+                    
+                </tr>
+            }   
+        </tbody>
+        }else{
+            <tbody>
+                <tr><td colspan="6">Pas de vol diponible</td></tr>
+            </tbody>
+        }
+    </table>
+</div>

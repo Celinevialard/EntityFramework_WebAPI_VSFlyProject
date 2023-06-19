@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Recherche";
+}
+
+<h1>Search info</h1>
+
+<h2>Information d'un lieu de destination</h2>
+
+<form asp-action="DestinationInfo">
+            <div class="form-group">
+        <input name="destination" class="form-control" placeholder="par ex. London City"/>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Chercher" class="btn btn-success" />
+            </div>
+    </form>
+
+
+<h2>Information d'un vol</h2>
+    <form asp-action="FlightInfo">
+        <div class="form-group">
+        <input name="flightNo" class="form-control" placeholder="par ex. 1" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Chercher" class="btn btn-success" />
+        </div>
+    </form>

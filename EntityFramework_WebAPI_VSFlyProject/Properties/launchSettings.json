@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "EntityFramework_WebAPI_VSFlyProject": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}
